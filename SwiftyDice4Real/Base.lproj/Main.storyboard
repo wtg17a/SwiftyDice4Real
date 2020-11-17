@@ -1,24 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftyDice4Real" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="d1" translatesAutoresizingMaskIntoConstraints="NO" id="d95-Y6-9bq">
+                                <rect key="frame" x="7" y="300" width="400" height="400"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tap or shake to roll" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdL-9v-b4e">
+                                <rect key="frame" x="1" y="768" width="412" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="87i-9b-N9c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZu-8i-TpL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <connections>
+                                    <action selector="buttonPress" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fpl-1y-QCc"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d95-Y6-9bq" secondAttribute="trailing" constant="7" id="6ra-q3-sBb"/>
+                            <constraint firstItem="IZu-8i-TpL" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Az0-H9-iur"/>
+                            <constraint firstItem="IZu-8i-TpL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fv5-lM-ahi"/>
+                            <constraint firstItem="IZu-8i-TpL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KxA-cn-sS5"/>
+                            <constraint firstItem="d95-Y6-9bq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="7" id="Mgt-lS-uUW"/>
+                            <constraint firstItem="tdL-9v-b4e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="1" id="SwL-sI-xmK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tdL-9v-b4e" secondAttribute="bottom" priority="999" constant="10" id="WMu-KS-MhK"/>
+                            <constraint firstItem="tdL-9v-b4e" firstAttribute="top" secondItem="d95-Y6-9bq" secondAttribute="bottom" priority="998" constant="100" id="Y6a-Lf-tVc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tdL-9v-b4e" secondAttribute="trailing" constant="1" id="e4l-DQ-ozR"/>
+                            <constraint firstItem="IZu-8i-TpL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iGa-rt-TfJ"/>
+                            <constraint firstItem="tdL-9v-b4e" firstAttribute="top" secondItem="d95-Y6-9bq" secondAttribute="bottom" constant="68" id="to9-9a-Wnd"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="criticalLabel" destination="tdL-9v-b4e" id="OQs-Hq-KAf"/>
+                        <outlet property="diceImageView" destination="d95-Y6-9bq" id="rM1-o7-xZc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="531.8840579710145" y="103.79464285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="d1" width="400" height="400"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
